@@ -50,9 +50,9 @@ d3.json(url).then(function (data) {
         switch (true) {
         case depth >5000:
             return "#003300";
-        case depth >3500:
+        case depth >3000:
             return "##008000";
-        case depth >1500:
+        case depth >1000:
             return "#00cc00";
         case depth >500:
             return "#1aff1a";
@@ -67,6 +67,11 @@ d3.json(url).then(function (data) {
             return 1;
         }
         return magnitude * 2;}
+    }
+    function quakeFeatures(earthquakeData) {
+        function eacherFeature(feature, layer) {
+            layer.bindPopup(`<h3>$feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p>`);
+        }
     }
 
 })
