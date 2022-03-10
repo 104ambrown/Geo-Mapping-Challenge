@@ -43,10 +43,32 @@ d3.json(url).then(function (data) {
             color: "green",
             // determined by quakes magnitude
             radius: getRadius(feature.properties.mag),
-            stroek: true,
+            stroke: true,
             weight: 0/5
         };
+    function getColor(depth) {
+        switch (true) {
+        case depth >5000:
+            return "#003300";
+        case depth >3500:
+            return "##008000";
+        case depth >1500:
+            return "#00cc00";
+        case depth >500:
+            return "#1aff1a";
+        case depth >100:
+            return "#b3ffb3";
+        default:
+            return "#e6ffe6"
+        }
     }
+    function bigO(magnitude) {
+        if (magnitude === 0) {
+            return 1;
+        }
+        return magnitude * 2;}
+    }
+
 })
 
 // adding tile layer to the map
