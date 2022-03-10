@@ -31,7 +31,7 @@ var myMap = L.map("basicMap", {
     layers: [street, earthquakes]
 });
 
-// D# get request tot hte url we're querying
+// D3 get request to the url we're querying
 d3.json(url).then(function (data) {
     console.log(data)
     function styleInfo(feature) {
@@ -75,8 +75,8 @@ d3.json(url).then(function (data) {
         // geojson layer that runs the eacherFeature function for ever piece of data in the dataset.
         var earthquakes = L.geoJSION(earthquakeData, {eacherFeature: eacherFeature});
 
-        // creating layer control and passing it ove rthe base and overlay maps
-        L.control.layers(baseMap, overlayMap, {collapsed: flase}).addTo(myMAp);
+        // creating layer control and passing it over the base and overlay maps
+        L.control.layers(baseMap, overlayMap, {collapsed: flase}).addTo(myMap);
     }
 
 })
