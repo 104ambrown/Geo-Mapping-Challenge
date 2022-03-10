@@ -72,11 +72,12 @@ d3.json(url).then(function (data) {
         function eacherFeature(feature, layer) {
             layer.bindPopup(`<h3>$feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p>`);
         }
+        // geojson layer that runs the eacherFeature function for ever piece of data in the dataset.
+        var earthquakes = L.geoJSION(earthquakeData, {eacherFeature: eacherFeature});
+
+        // creating layer control and passing it ove rthe base and overlay maps
+        L.control.layers(baseMap, overlayMap, {collapsed: flase}).addTo(myMAp);
     }
 
 })
-
-// adding tile layer to the map
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www/openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(mapObj);
+}
