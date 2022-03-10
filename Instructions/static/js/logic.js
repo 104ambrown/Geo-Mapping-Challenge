@@ -15,7 +15,12 @@ function creatMyMap(earthquakes) {
     var topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
       });
-}
+
+    // declaring variable for basemap object
+    var baseMap = {"Strret Map": street, "Topographic Map": topo};
+
+    // variable for earthquake overlay on my map
+    var overlayMap = { Earthquakes: earthquakes};
 
 
 // Creating a variable for my map establishing where the center is and level of zoom
